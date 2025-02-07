@@ -11,12 +11,23 @@ class AppTheme {
   static Color get secondaryText => const Color(0xFF3E4041);
   static Color get terciaryText => const Color(0xFF717577);
 
+  static double get spacingLg => 4;
+  static double get spacingMd => 3;
+  static double get spacingXs => 1;
+  static double get spacingXxs => 0.5;
+
   static TextTheme get textTheme => TextTheme(
         bodySmall: TextStyle(
           fontSize: 12,
           fontWeight: FontWeight.w400,
           color: terciaryText,
           fontFamily: 'Rawline',
+        ),
+        labelMedium: TextStyle(
+          fontSize: 12,
+          fontWeight: FontWeight.normal,
+          fontFamily: primaryFontFamily,
+          color: secondaryText,
         ),
         titleLarge: TextStyle(
           fontSize: 22,
@@ -31,4 +42,6 @@ class AppTheme {
           color: secondaryText,
         ),
       );
+
+  static double get iconButton => 24;
 }
