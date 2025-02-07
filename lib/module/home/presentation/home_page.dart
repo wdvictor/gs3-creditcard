@@ -1,3 +1,6 @@
+import 'package:creditcard/module/home/controllers/bottom_bar_controller.dart';
+import 'package:creditcard/module/home/domain/enums/bottom_nav_bar_type.dart';
+import 'package:creditcard/module/home/presentation/home_page_background.dart';
 import 'package:creditcard/module/home/presentation/widgets/app_bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
 
@@ -9,10 +12,42 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final controller = BottomBarController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: AppBottomNavBar(),
+      body: HomePageBackground(
+        child: ValueListenableBuilder(
+          valueListenable: controller,
+          builder: (context, type, child) {
+            if (type == BottomNavBarType.home) {
+              return Center(
+                child: Text('home'),
+              );
+            }
+            if (type == BottomNavBarType.fatura) {
+              return Center(
+                child: Text('Fatura'),
+              );
+            }
+            if (type == BottomNavBarType.cartao) {
+              return Center(
+                child: Text('cartão'),
+              );
+            }
+            if (type == BottomNavBarType.shop) {
+              return Center(
+                child: Text('shop'),
+              );
+            }
+
+            return Text('Error');
+          },
+        ),
+      ),
+      bottomNavigationBar: AppBottomNavBar(
+        controller: controller,
+      ),
     );
   }
 }

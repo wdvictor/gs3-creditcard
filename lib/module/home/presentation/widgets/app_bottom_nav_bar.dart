@@ -5,15 +5,13 @@ import 'package:flutter/cupertino.dart';
 import 'bottom_nav_bar_item.dart';
 
 class AppBottomNavBar extends StatefulWidget {
-  const AppBottomNavBar({super.key});
-
+  const AppBottomNavBar({super.key, required this.controller});
+  final BottomBarController controller;
   @override
   State<AppBottomNavBar> createState() => _AppBottomNavBarState();
 }
 
 class _AppBottomNavBarState extends State<AppBottomNavBar> {
-  final controller = BottomBarController();
-
   @override
   void initState() {
     super.initState();
@@ -23,7 +21,7 @@ class _AppBottomNavBarState extends State<AppBottomNavBar> {
   Widget build(BuildContext context) {
     return CustomAppNavBar(
       child: ValueListenableBuilder(
-        valueListenable: controller,
+        valueListenable: widget.controller,
         builder: (context, type, child) {
           return Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -32,7 +30,9 @@ class _AppBottomNavBarState extends State<AppBottomNavBar> {
                 child: BottomNavBarItem(
                   label: 'Home',
                   icon: CupertinoIcons.home,
-                  onTap: () {},
+                  onTap: () => widget.controller.onChangeType(
+                    BottomNavBarType.home,
+                  ),
                   enabled: type == BottomNavBarType.home,
                 ),
               ),
@@ -40,7 +40,9 @@ class _AppBottomNavBarState extends State<AppBottomNavBar> {
                 child: BottomNavBarItem(
                   label: 'Fatura',
                   icon: CupertinoIcons.doc_text,
-                  onTap: () {},
+                  onTap: () => widget.controller.onChangeType(
+                    BottomNavBarType.fatura,
+                  ),
                   enabled: type == BottomNavBarType.fatura,
                 ),
               ),
@@ -48,7 +50,9 @@ class _AppBottomNavBarState extends State<AppBottomNavBar> {
                 child: BottomNavBarItem(
                   label: 'Cartão',
                   icon: CupertinoIcons.creditcard,
-                  onTap: () {},
+                  onTap: () => widget.controller.onChangeType(
+                    BottomNavBarType.cartao,
+                  ),
                   enabled: type == BottomNavBarType.cartao,
                 ),
               ),
@@ -56,7 +60,9 @@ class _AppBottomNavBarState extends State<AppBottomNavBar> {
                 child: BottomNavBarItem(
                   label: 'Shop',
                   icon: CupertinoIcons.bag,
-                  onTap: () {},
+                  onTap: () => widget.controller.onChangeType(
+                    BottomNavBarType.shop,
+                  ),
                   enabled: type == BottomNavBarType.shop,
                 ),
               ),
