@@ -1,6 +1,6 @@
 import 'package:creditcard/module/home/controllers/bottom_bar_controller.dart';
 import 'package:creditcard/module/home/domain/enums/bottom_nav_bar_type.dart';
-import 'package:creditcard/module/home/presentation/widgets/custom_app_nav_bar.dart';
+import 'package:creditcard/module/home/presentation/widgets/bottom_bar_widgets/custom_app_nav_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'bottom_nav_bar_item.dart';
 

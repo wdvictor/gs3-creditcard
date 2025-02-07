@@ -1,5 +1,6 @@
 import 'package:creditcard/module/app/core/extensions/build_context_extensions.dart';
 import 'package:creditcard/module/app/core/theme/app_theme.dart';
+import 'package:creditcard/module/home/presentation/widgets/top_bar_widgets/top_bar.dart';
 import 'package:flutter/material.dart';
 
 class HomePageBackground extends StatelessWidget {
@@ -8,6 +9,7 @@ class HomePageBackground extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.symmetric(horizontal: 15),
       width: context.screenWidth,
       height: context.screenHeight,
       decoration: BoxDecoration(
@@ -23,7 +25,7 @@ class HomePageBackground extends StatelessWidget {
       ),
       child: SafeArea(
         child: Column(
-          children: [child],
+          children: [TopBar(), child],
         ),
       ),
     );
