@@ -1,0 +1,32 @@
+{
+    "cartoes": [
+      {
+        "numero": "4111111111111111",
+        "nome": "GS3 TEC",
+        "bandeira": "Visa",
+        "melhor_data_compra": "05",
+        "limite_disponivel": 5000.00
+      },
+      {
+        "numero": "5500000000000004",
+        "nome": "GS3 TEC",
+        "bandeira": "Mastercard",
+        "melhor_data_compra": "10",
+        "limite_disponivel": 7500.00
+      },
+      {
+        "numero": "4012888888881881",
+        "nome": "GS3 TEC",
+        "bandeira": "Visa",
+        "melhor_data_compra": "15",
+        "limite_disponivel": 3000.00
+      },
+      {
+        "numero": "5555555555554444",
+        "nome": "GS3 TEC",
+        "bandeira": "Mastercard",
+        "melhor_data_compra": "20",
+        "limite_disponivel": 10000.00
+      }
+    ]
+  }

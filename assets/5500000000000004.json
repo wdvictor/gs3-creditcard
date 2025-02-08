@@ -1,0 +1,22 @@
+{
+    "transacoes": [
+      {
+        "data_hora": "2023-09-28 12:00:00",
+        "valor": 300.00,
+        "empresa": "Posto de Gasolina Shell",
+        "parcelas": 1
+      },
+      {
+        "data_hora": "2023-09-22 16:20:00",
+        "valor": 1200.00,
+        "empresa": "Loja de Móveis Casa Nova",
+        "parcelas": 6
+      },
+      {
+        "data_hora": "2023-09-18 10:00:00",
+        "valor": 50.00,
+        "empresa": "Cafeteria Aconchego",
+        "parcelas": 1
+      }
+    ]
+  }

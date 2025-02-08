@@ -1,0 +1,22 @@
+{
+    "transacoes": [
+      {
+        "data_hora": "2023-09-29 11:30:00",
+        "valor": 600.00,
+        "empresa": "Concessionária Carro Novo",
+        "parcelas": 12
+      },
+      {
+        "data_hora": "2023-09-24 17:50:00",
+        "valor": 80.00,
+        "empresa": "Livraria Leitura",
+        "parcelas": 1
+      },
+      {
+        "data_hora": "2023-09-19 20:00:00",
+        "valor": 250.00,
+        "empresa": "Restaurante Gourmet",
+        "parcelas": 2
+      }
+    ]
+  }

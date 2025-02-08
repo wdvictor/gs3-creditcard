@@ -1,0 +1,22 @@
+{
+    "transacoes": [
+      {
+        "data_hora": "2023-09-25 14:30:00",
+        "valor": 120.50,
+        "empresa": "Supermercado ABC",
+        "parcelas": 1
+      },
+      {
+        "data_hora": "2023-09-20 09:15:00",
+        "valor": 450.00,
+        "empresa": "Loja de Eletrônicos XYZ",
+        "parcelas": 3
+      },
+      {
+        "data_hora": "2023-09-15 18:45:00",
+        "valor": 75.00,
+        "empresa": "Restaurante Saboroso",
+        "parcelas": 1
+      }
+    ]
+  }

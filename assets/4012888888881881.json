@@ -1,0 +1,22 @@
+{
+    "transacoes": [
+      {
+        "data_hora": "2023-09-27 19:00:00",
+        "valor": 200.00,
+        "empresa": "Cinema Cineplex",
+        "parcelas": 2
+      },
+      {
+        "data_hora": "2023-09-21 08:45:00",
+        "valor": 90.00,
+        "empresa": "Farmácia Saúde Total",
+        "parcelas": 1
+      },
+      {
+        "data_hora": "2023-09-16 13:10:00",
+        "valor": 150.00,
+        "empresa": "Loja de Roupas Moda Jovem",
+        "parcelas": 1
+      }
+    ]
+  }
