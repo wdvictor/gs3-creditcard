@@ -21,4 +21,20 @@ class CardsDatasource extends ICardsDatasource {
       });
     }
   }
+
+  @override
+  Future<Either<Map, Map>> getLastTransactions(int cardNumber) async {
+    try {
+      final String response = await rootBundle.loadString(
+        'assets/$cardNumber.json',
+      );
+      final Map<String, dynamic> data = jsonDecode(response);
+      return Either.right(data);
+    } catch (e) {
+      return Either.left({
+        'error': 'Erro ao carregar o arquivo JSON',
+        'details': e.toString(),
+      });
+    }
+  }
 }

@@ -1,8 +1,9 @@
 import 'package:creditcard/module/all_cards/domain/entities/card_entity.dart';
+import 'package:creditcard/module/all_cards/domain/entities/transaction_entity.dart';
 import 'package:creditcard/module/all_cards/domain/repositories/i_cards_repository.dart';
 import 'package:creditcard/module/all_cards/infra/datasource/i_cards_datasource.dart';
 import 'package:creditcard/module/all_cards/infra/models/card_model.dart';
-
+import 'package:creditcard/module/all_cards/infra/models/transaction_model.dart';
 import 'package:creditcard/module/app/core/controllers/either.dart';
 
 class CardsRepository extends ICardsRepository {
@@ -22,6 +23,19 @@ class CardsRepository extends ICardsRepository {
               )
               .toList();
           return Either.right(cards);
+        } catch (e) {
+          return Either.left(Exception('Convert data error: $e'));
+        }
+      });
+    });
+  }
+
+  @override
+  Future<Either<Exception, List<TransactionEntity>>> getLastTransactions(int cardNumber) {
+    return datasource.getLastTransactions(cardNumber).then((value) {
+      return value.fold((l) => Either.left(Exception(l)), (r) {
+        try {
+          return Either.right(r['transacoes'].map((json) => TransactionModel.fromMap(json)));
         } catch (e) {
           return Either.left(Exception('Convert data error: $e'));
         }
