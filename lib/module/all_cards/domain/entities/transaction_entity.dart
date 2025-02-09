@@ -7,7 +7,7 @@ class TransactionEntity {
   });
 
   final String dateTime;
-  final String amount;
+  final double amount;
   final String merchant;
-  final DateTime installments;
+  final int installments;
 }

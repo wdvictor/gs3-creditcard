@@ -11,7 +11,7 @@ class TransactionModel extends TransactionEntity {
   factory TransactionModel.fromMap(Map<String, dynamic> map) {
     return TransactionModel(
       dateTime: map['data_hora'],
-      amount: map['valor'].toDouble(),
+      amount: map['valor'],
       merchant: map['empresa'],
       installments: map['parcelas'],
     );

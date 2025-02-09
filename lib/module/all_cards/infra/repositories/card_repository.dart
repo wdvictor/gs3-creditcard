@@ -35,7 +35,13 @@ class CardsRepository extends ICardsRepository {
     return datasource.getLastTransactions(cardNumber).then((value) {
       return value.fold((l) => Either.left(Exception(l)), (r) {
         try {
-          return Either.right(r['transacoes'].map((json) => TransactionModel.fromMap(json)));
+          final List<dynamic> transacoesList = r['transacoes'];
+          var transacoes = transacoesList
+              .map(
+                (json) => TransactionModel.fromMap(json),
+              )
+              .toList();
+          return Either.right(transacoes);
         } catch (e) {
           return Either.left(Exception('Convert data error: $e'));
         }
