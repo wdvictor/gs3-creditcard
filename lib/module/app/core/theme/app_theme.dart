@@ -29,6 +29,12 @@ class AppTheme {
           fontFamily: primaryFontFamily,
           color: secondaryText,
         ),
+        titleSmall: TextStyle(
+          fontSize: 14,
+          fontWeight: FontWeight.bold,
+          fontFamily: primaryFontFamily,
+          color: terciaryText,
+        ),
         titleLarge: TextStyle(
           fontSize: 22,
           fontWeight: FontWeight.bold,

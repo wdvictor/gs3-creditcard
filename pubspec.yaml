@@ -24,6 +24,9 @@ flutter:
 
   assets:
     - assets/cartoes.json
+    - assets/visa.png
+    - assets/mastercard.png
+    - assets/default.png
     - assets/4111111111111111.json
     - assets/5500000000000004.json
     - assets/4012888888881881.json

@@ -1,3 +1,4 @@
+import 'package:creditcard/module/all_cards/presentation/all_cards_page.dart';
 import 'package:creditcard/module/home/controllers/bottom_bar_controller.dart';
 import 'package:creditcard/module/home/domain/enums/bottom_nav_bar_type.dart';
 import 'package:creditcard/module/home/presentation/widgets/home_page_background.dart';
@@ -12,18 +13,16 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final controller = BottomBarController();
+  final _controller = BottomBarController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: HomePageBackground(
         child: ValueListenableBuilder(
-          valueListenable: controller,
+          valueListenable: _controller,
           builder: (context, type, child) {
             if (type == BottomNavBarType.home) {
-              return Center(
-                child: Text('home'),
-              );
+              return AllCardsPage();
             }
             if (type == BottomNavBarType.fatura) {
               return Center(
@@ -46,7 +45,7 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       bottomNavigationBar: AppBottomNavBar(
-        controller: controller,
+        controller: _controller,
       ),
     );
   }
