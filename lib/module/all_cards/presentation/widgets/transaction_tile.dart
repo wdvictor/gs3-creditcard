@@ -8,30 +8,33 @@ class TransactionTile extends StatelessWidget {
 
   Icon _getIconForMerchant(String merchant) {
     if (merchant.toLowerCase().contains('cinema')) {
-      return Icon(Icons.movie, color: AppTheme.mediumBlue);
+      return Icon(Icons.movie_creation_outlined, color: AppTheme.mediumBlue);
+    }
+    if (merchant.toLowerCase().contains('eletrônicos')) {
+      return Icon(Icons.computer_outlined, color: AppTheme.mediumBlue);
     }
     if (merchant.toLowerCase().contains('farmácia')) {
-      return Icon(Icons.local_pharmacy, color: AppTheme.mediumBlue);
+      return Icon(Icons.local_pharmacy_outlined, color: AppTheme.mediumBlue);
     }
     if (merchant.toLowerCase().contains('loja')) {
-      return Icon(Icons.shopping_cart, color: AppTheme.mediumBlue);
+      return Icon(Icons.shopping_cart_outlined, color: AppTheme.mediumBlue);
     }
     if (merchant.toLowerCase().contains('restaurante')) {
-      return Icon(Icons.restaurant, color: AppTheme.mediumBlue);
+      return Icon(Icons.restaurant_menu_outlined, color: AppTheme.mediumBlue);
     }
 
     if (merchant.toLowerCase().contains('livraria')) {
-      return Icon(Icons.book, color: AppTheme.mediumBlue);
+      return Icon(Icons.book_online_outlined, color: AppTheme.mediumBlue);
     }
 
     if (merchant.toLowerCase().contains('supermercado')) {
-      return Icon(Icons.shopping_bag, color: AppTheme.mediumBlue);
+      return Icon(Icons.shopping_bag_outlined, color: AppTheme.mediumBlue);
     }
 
-    return Icon(Icons.credit_card, color: AppTheme.mediumBlue);
+    return Icon(Icons.credit_card_off_outlined, color: AppTheme.mediumBlue);
   }
 
-  String formatDate(String dateString) {
+  String _formatDate(String dateString) {
     DateTime dateTime = DateTime.parse(dateString);
 
     String day = dateTime.day.toString().padLeft(2, '0');
@@ -45,9 +48,16 @@ class TransactionTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 70,
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 20),
       width: double.maxFinite,
+      decoration: BoxDecoration(
+        border: Border(
+          bottom: BorderSide(
+            color: Colors.grey.withAlpha(40),
+          ),
+        ),
+      ),
       child: Row(
         children: [
           Expanded(
@@ -57,17 +67,20 @@ class TransactionTile extends StatelessWidget {
             flex: 5,
             child: Text.rich(
               TextSpan(
-                  text: '${transaction.merchant}\n',
-                  style: AppTheme.textTheme.titleSmall!.copyWith(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  children: [
-                    TextSpan(
-                      text: formatDate(transaction.dateTime),
-                      style: AppTheme.textTheme.bodySmall!.copyWith(fontWeight: FontWeight.w500),
-                    )
-                  ]),
+                text: '${transaction.merchant}\n',
+                style: AppTheme.textTheme.titleSmall!.copyWith(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),
+                children: [
+                  TextSpan(
+                    text: _formatDate(transaction.dateTime),
+                    style: AppTheme.textTheme.bodySmall!.copyWith(
+                      fontWeight: FontWeight.w500,
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
           Expanded(
@@ -75,17 +88,20 @@ class TransactionTile extends StatelessWidget {
             child: Text.rich(
               textAlign: TextAlign.end,
               TextSpan(
-                  text: 'R\$ ${transaction.amount.toStringAsFixed(2)}\n\t',
-                  style: AppTheme.textTheme.titleSmall!.copyWith(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                  ),
-                  children: [
-                    TextSpan(
-                      text: 'em ${transaction.installments}x',
-                      style: AppTheme.textTheme.bodySmall!.copyWith(fontWeight: FontWeight.w500),
-                    )
-                  ]),
+                text: 'R\$ ${transaction.amount.toStringAsFixed(2)}\n\t',
+                style: AppTheme.textTheme.titleSmall!.copyWith(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                ),
+                children: [
+                  TextSpan(
+                    text: 'em ${transaction.installments}x',
+                    style: AppTheme.textTheme.bodySmall!.copyWith(
+                      fontWeight: FontWeight.w500,
+                    ),
+                  )
+                ],
+              ),
             ),
           )
         ],

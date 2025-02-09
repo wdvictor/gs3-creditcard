@@ -1,4 +1,6 @@
+import 'package:creditcard/module/all_cards/domain/entities/transaction_entity.dart';
 import 'package:creditcard/module/all_cards/presentation/controllers/transactions_controller.dart';
+import 'package:creditcard/module/all_cards/presentation/widgets/transaction_day_title.dart';
 import 'package:creditcard/module/all_cards/presentation/widgets/transaction_tile.dart';
 import 'package:creditcard/module/app/widgets/error_message.dart';
 import 'package:flutter/material.dart';
@@ -35,6 +37,25 @@ class _TransactionsListState extends State<TransactionsList> {
     await _controller.getTransactions(int.parse(widget.cardNumber));
   }
 
+  Map<String, List<TransactionEntity>> _groupTransactionsByDay(
+      List<TransactionEntity> transactions) {
+    Map<String, List<TransactionEntity>> grouped = {};
+
+    for (var transaction in transactions) {
+      DateTime dateTime = DateTime.parse(transaction.dateTime);
+
+      String dateKey =
+          "${dateTime.day.toString().padLeft(2, '0')}/${dateTime.month.toString().padLeft(2, '0')}";
+
+      if (!grouped.containsKey(dateKey)) {
+        grouped[dateKey] = [];
+      }
+      grouped[dateKey]!.add(transaction);
+    }
+
+    return grouped;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -52,6 +73,10 @@ class _TransactionsListState extends State<TransactionsList> {
           ValueListenableBuilder(
             valueListenable: _controller,
             builder: (context, transactions, _) {
+              final groupedTransactions = _groupTransactionsByDay(
+                transactions,
+              );
+
               if (_controller.error != null) {
                 return ErrorMessage(
                   message: _controller.error.toString(),
@@ -60,15 +85,29 @@ class _TransactionsListState extends State<TransactionsList> {
               if (_controller.isLoading) {
                 return CircularProgressIndicator();
               }
-              return ListView.builder(
+              return ListView(
                 addAutomaticKeepAlives: false,
                 shrinkWrap: true,
-                itemCount: transactions.length,
-                itemBuilder: (context, index) {
-                  return TransactionTile(
-                    transaction: transactions[index],
-                  );
-                },
+                children: groupedTransactions.entries.map(
+                  (entry) {
+                    String day = entry.key;
+                    List<TransactionEntity> transactionsForDay = entry.value;
+
+                    return Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        TransactionDayTitle(
+                          date: day,
+                        ),
+                        ...transactionsForDay.map(
+                          (transaction) {
+                            return TransactionTile(transaction: transaction);
+                          },
+                        ),
+                      ],
+                    );
+                  },
+                ).toList(),
               );
             },
           ),
