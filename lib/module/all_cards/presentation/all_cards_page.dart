@@ -1,7 +1,6 @@
-import 'dart:developer';
-
 import 'package:creditcard/module/all_cards/presentation/controllers/cards_controller.dart';
 import 'package:creditcard/module/all_cards/presentation/widgets/cards_list.dart';
+import 'package:creditcard/module/all_cards/presentation/widgets/no_card_found.dart';
 import 'package:creditcard/module/all_cards/presentation/widgets/transaction_list.dart';
 import 'package:creditcard/module/app/widgets/error_message.dart';
 import 'package:flutter/material.dart';
@@ -38,9 +37,7 @@ class _AllCardsPageState extends State<AllCardsPage> {
           }
 
           if (cards.isEmpty) {
-            return Center(
-              child: Text('Sem cartão'),
-            );
+            return NoCardFound();
           }
           return Column(
             children: [
@@ -52,7 +49,6 @@ class _AllCardsPageState extends State<AllCardsPage> {
               ValueListenableBuilder(
                   valueListenable: _selectedCardIndex,
                   builder: (context, index, _) {
-                    log(cards[index].cardNumber);
                     return TransactionsList(
                       cardNumber: cards[index].cardNumber,
                     );
