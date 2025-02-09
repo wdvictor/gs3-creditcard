@@ -1,8 +1,8 @@
-import 'package:creditcard/module/all_cards/data/cards_datasource.dart';
-import 'package:creditcard/module/all_cards/domain/entities/transaction_entity.dart';
-import 'package:creditcard/module/all_cards/domain/usecases/i_cards_usecase.dart';
-import 'package:creditcard/module/all_cards/infra/repositories/card_repository.dart';
-import 'package:creditcard/module/all_cards/infra/usecases/cards_usecases.dart';
+import 'package:creditcard/module/cards/data/cards_datasource.dart';
+import 'package:creditcard/module/cards/domain/entities/transaction_entity.dart';
+import 'package:creditcard/module/cards/domain/usecases/i_cards_usecase.dart';
+import 'package:creditcard/module/cards/infra/repositories/card_repository.dart';
+import 'package:creditcard/module/cards/infra/usecases/cards_usecases.dart';
 import 'package:creditcard/module/app/core/controllers/custom_controller.dart';
 
 class TransactionsController extends CustomController<Exception, List<TransactionEntity>> {

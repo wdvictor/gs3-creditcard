@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:creditcard/module/all_cards/infra/datasource/i_cards_datasource.dart';
+import 'package:creditcard/module/cards/infra/datasource/i_cards_datasource.dart';
 import 'package:creditcard/module/app/core/controllers/either.dart';
 import 'package:flutter/services.dart';
 

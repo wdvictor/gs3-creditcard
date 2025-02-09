@@ -1,5 +1,5 @@
-import 'package:creditcard/module/all_cards/domain/entities/card_entity.dart';
-import 'package:creditcard/module/all_cards/presentation/widgets/card_widget.dart';
+import 'package:creditcard/module/cards/domain/entities/card_entity.dart';
+import 'package:creditcard/module/cards/presentation/widgets/cards/card_widget.dart';
 import 'package:flutter/material.dart';
 
 class CardsList extends StatefulWidget {

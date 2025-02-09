@@ -1,4 +1,4 @@
-import 'package:creditcard/module/all_cards/domain/entities/card_entity.dart';
+import 'package:creditcard/module/cards/domain/entities/card_entity.dart';
 
 class CardModel extends CardEntity {
   CardModel({

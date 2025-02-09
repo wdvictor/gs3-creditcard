@@ -1,7 +1,7 @@
-import 'package:creditcard/module/all_cards/domain/entities/transaction_entity.dart';
-import 'package:creditcard/module/all_cards/presentation/controllers/transactions_controller.dart';
-import 'package:creditcard/module/all_cards/presentation/widgets/transaction_day_title.dart';
-import 'package:creditcard/module/all_cards/presentation/widgets/transaction_tile.dart';
+import 'package:creditcard/module/cards/domain/entities/transaction_entity.dart';
+import 'package:creditcard/module/cards/presentation/controllers/transactions_controller.dart';
+import 'package:creditcard/module/cards/presentation/widgets/transactions/transaction_day_title.dart';
+import 'package:creditcard/module/cards/presentation/widgets/transactions/transaction_tile.dart';
 import 'package:creditcard/module/app/widgets/error_message.dart';
 import 'package:flutter/material.dart';
 

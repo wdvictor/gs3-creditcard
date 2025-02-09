@@ -1,4 +1,4 @@
-import 'package:creditcard/module/all_cards/domain/entities/transaction_entity.dart';
+import 'package:creditcard/module/cards/domain/entities/transaction_entity.dart';
 import 'package:creditcard/module/app/core/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 

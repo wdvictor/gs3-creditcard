@@ -1,9 +1,9 @@
-import 'package:creditcard/module/all_cards/domain/entities/card_entity.dart';
-import 'package:creditcard/module/all_cards/domain/entities/transaction_entity.dart';
-import 'package:creditcard/module/all_cards/domain/repositories/i_cards_repository.dart';
-import 'package:creditcard/module/all_cards/infra/datasource/i_cards_datasource.dart';
-import 'package:creditcard/module/all_cards/infra/models/card_model.dart';
-import 'package:creditcard/module/all_cards/infra/models/transaction_model.dart';
+import 'package:creditcard/module/cards/domain/entities/card_entity.dart';
+import 'package:creditcard/module/cards/domain/entities/transaction_entity.dart';
+import 'package:creditcard/module/cards/domain/repositories/i_cards_repository.dart';
+import 'package:creditcard/module/cards/infra/datasource/i_cards_datasource.dart';
+import 'package:creditcard/module/cards/infra/models/card_model.dart';
+import 'package:creditcard/module/cards/infra/models/transaction_model.dart';
 import 'package:creditcard/module/app/core/controllers/either.dart';
 
 class CardsRepository extends ICardsRepository {

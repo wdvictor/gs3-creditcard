@@ -1,18 +1,18 @@
-import 'package:creditcard/module/all_cards/presentation/controllers/cards_controller.dart';
-import 'package:creditcard/module/all_cards/presentation/widgets/cards_list.dart';
-import 'package:creditcard/module/all_cards/presentation/widgets/no_card_found.dart';
-import 'package:creditcard/module/all_cards/presentation/widgets/transaction_list.dart';
+import 'package:creditcard/module/cards/presentation/controllers/cards_controller.dart';
+import 'package:creditcard/module/cards/presentation/widgets/cards/cards_list.dart';
+import 'package:creditcard/module/cards/presentation/widgets/cards/no_card_found.dart';
+import 'package:creditcard/module/cards/presentation/widgets/transactions/transaction_list.dart';
 import 'package:creditcard/module/app/widgets/error_message.dart';
 import 'package:flutter/material.dart';
 
-class AllCardsPage extends StatefulWidget {
-  const AllCardsPage({super.key});
+class CardsPage extends StatefulWidget {
+  const CardsPage({super.key});
 
   @override
-  State<AllCardsPage> createState() => _AllCardsPageState();
+  State<CardsPage> createState() => _CardsPageState();
 }
 
-class _AllCardsPageState extends State<AllCardsPage> {
+class _CardsPageState extends State<CardsPage> {
   late CardsController _controller;
   final ValueNotifier<int> _selectedCardIndex = ValueNotifier<int>(0);
 

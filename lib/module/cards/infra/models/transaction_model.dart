@@ -1,4 +1,4 @@
-import 'package:creditcard/module/all_cards/domain/entities/transaction_entity.dart';
+import 'package:creditcard/module/cards/domain/entities/transaction_entity.dart';
 
 class TransactionModel extends TransactionEntity {
   TransactionModel({
