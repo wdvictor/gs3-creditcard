@@ -31,6 +31,8 @@ flutter:
     - assets/5500000000000004.json
     - assets/4012888888881881.json
     - assets/5555555555554444.json
+    - assets/app_icon.png
+
 
 
   fonts:
