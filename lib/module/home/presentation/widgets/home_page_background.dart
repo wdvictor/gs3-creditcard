@@ -16,14 +16,17 @@ class HomePageBackground extends StatelessWidget {
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: [
+            AppTheme.darkBlue,
             AppTheme.lightBlue,
             Colors.white10,
-            Colors.white12,
+            Colors.white10,
+            Colors.white,
           ],
         ),
       ),
       child: SafeArea(
-        child: Column(
+        child: ListView(
+          physics: NeverScrollableScrollPhysics(),
           children: [TopBar(), child],
         ),
       ),

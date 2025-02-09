@@ -1,3 +1,4 @@
+import 'package:creditcard/module/app/core/extensions/build_context_extensions.dart';
 import 'package:creditcard/module/cards/domain/entities/transaction_entity.dart';
 import 'package:creditcard/module/cards/presentation/controllers/transactions_controller.dart';
 import 'package:creditcard/module/cards/presentation/widgets/transactions/transaction_day_title.dart';
@@ -70,46 +71,47 @@ class _TransactionsListState extends State<TransactionsList> {
               fontWeight: FontWeight.bold,
             ),
           ),
-          ValueListenableBuilder(
-            valueListenable: _controller,
-            builder: (context, transactions, _) {
-              final groupedTransactions = _groupTransactionsByDay(
-                transactions,
-              );
-
-              if (_controller.error != null) {
-                return ErrorMessage(
-                  message: _controller.error.toString(),
+          SizedBox(
+            height: context.screenHeight * 0.4,
+            child: ValueListenableBuilder(
+              valueListenable: _controller,
+              builder: (context, transactions, _) {
+                final groupedTransactions = _groupTransactionsByDay(
+                  transactions,
                 );
-              }
-              if (_controller.isLoading) {
-                return CircularProgressIndicator();
-              }
-              return ListView(
-                addAutomaticKeepAlives: false,
-                shrinkWrap: true,
-                children: groupedTransactions.entries.map(
-                  (entry) {
-                    String day = entry.key;
-                    List<TransactionEntity> transactionsForDay = entry.value;
 
-                    return Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        TransactionDayTitle(
-                          date: day,
-                        ),
-                        ...transactionsForDay.map(
-                          (transaction) {
-                            return TransactionTile(transaction: transaction);
-                          },
-                        ),
-                      ],
-                    );
-                  },
-                ).toList(),
-              );
-            },
+                if (_controller.error != null) {
+                  return ErrorMessage(
+                    message: _controller.error.toString(),
+                  );
+                }
+                if (_controller.isLoading) {
+                  return CircularProgressIndicator();
+                }
+                return ListView(
+                  children: groupedTransactions.entries.map(
+                    (entry) {
+                      String day = entry.key;
+                      List<TransactionEntity> transactionsForDay = entry.value;
+
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          TransactionDayTitle(
+                            date: day,
+                          ),
+                          ...transactionsForDay.map(
+                            (transaction) {
+                              return TransactionTile(transaction: transaction);
+                            },
+                          ),
+                        ],
+                      );
+                    },
+                  ).toList(),
+                );
+              },
+            ),
           ),
         ],
       ),

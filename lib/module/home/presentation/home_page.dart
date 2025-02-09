@@ -1,4 +1,4 @@
-import 'package:creditcard/module/cards/presentation/all_cards_page.dart';
+import 'package:creditcard/module/cards/presentation/cards_page.dart';
 import 'package:creditcard/module/home/controllers/bottom_bar_controller.dart';
 import 'package:creditcard/module/home/domain/enums/bottom_nav_bar_type.dart';
 import 'package:creditcard/module/home/presentation/widgets/home_page_background.dart';
